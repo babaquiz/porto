@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rafi Sakya Aji</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #ffffff;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2563eb;
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-800 font-sans min-h-screen flex flex-col antialiased selection:bg-brand-600 selection:text-white">
+
+    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none bg-slate-900 text-white px-5 py-3 rounded-xl shadow-xl flex items-center gap-3 border border-slate-700">
+        <i id="toast-icon" class="fa-solid fa-circle-check text-brand-500 text-lg"></i>
+        <span id="toast-message" class="text-sm font-medium">Pesan berhasil dikirim!</span>
+    </div>
+
+    <header class="sticky top-0 z-40 w-full bg-white/90 backdrop-blur-md border-b border-slate-100 transition-all">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2 font-bold text-slate-900 text-base">
+                <span>Rafi Sakya Aji<span class="text-brand-600"></span></span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-6 text-xs font-semibold text-slate-600">
+                <a href="#about" class="hover:text-brand-600 transition-colors">Tentang</a>
+                <a href="#skills" class="hover:text-brand-600 transition-colors">Skill</a>
+                <a href="#education" class="hover:text-brand-600 transition-colors">Pendidikan</a>
+                <a href="#projects" class="hover:text-brand-600 transition-colors">Proyek</a>
+                <a href="#contact" class="hover:text-brand-600 transition-colors">Kontak</a>
+            </nav>
+
+            <a href="#contact" class="hidden sm:inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white px-4 py-2 rounded-lg text-xs font-semibold shadow-sm transition-all">
+                <span>Kontak Saya</span>
+                <i class="fa-solid fa-paper-plane text-[10px]"></i>
+            </a>
+
+            <button id="mobile-menu-btn" aria-label="Toggle Mobile Menu" class="md:hidden p-2 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors">
+                <i class="fa-solid fa-bars text-base"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white px-4 py-3 space-y-1 text-slate-700 text-xs font-medium">
+            <a href="#about" class="block px-3 py-2 rounded-lg hover:bg-brand-50 hover:text-brand-600">Tentang Diri</a>
+            <a href="#skills" class="block px-3 py-2 rounded-lg hover:bg-brand-50 hover:text-brand-600">Skill</a>
+            <a href="#education" class="block px-3 py-2 rounded-lg hover:bg-brand-50 hover:text-brand-600">Pendidikan</a>
+            <a href="#projects" class="block px-3 py-2 rounded-lg hover:bg-brand-50 hover:text-brand-600">Proyek</a>
+            <a href="#contact" class="block px-3 py-2 rounded-lg hover:bg-brand-50 hover:text-brand-600">Kontak</a>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <section id="hero" class="py-16 md:py-20 bg-white border-b border-slate-100">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center flex flex-col items-center">
+                
+                <!-- Centered Photo Avatar -->
+                <div class="relative mb-6 group">
+                    <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full p-1.5 bg-brand-50 border-2 border-brand-200 shadow-md flex items-center justify-center">
+                        <img src="Rafi.jpg" 
+                             alt="Foto Profil Rafi Sakya Aji" 
+                             class="w-full h-full object-cover rounded-full">
+                    </div>
+                
+                </div>
+
+                <!-- Centered Badge & Bio Header -->
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 text-brand-700 text-xs font-semibold border border-brand-200 mb-4">
+                    <span class="w-2 h-2 rounded-full bg-brand-600"></span>
+                    <span>Teknik Perminyakan ITB 2025</span>
+                </div>
+
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-3">
+                    Rafi Sakya Aji
+                </h1>
+
+                <p class="text-sm sm:text-base text-slate-600 font-medium max-w-lg mx-auto leading-relaxed mb-6">
+                    Mahasiswa <strong class="text-slate-800">Teknik Perminyakan Institut Teknologi Bandung</strong> angkatan 2025 sekaligus <strong class="text-slate-800">Awardee Beasiswa Unggulan</strong>. Memiliki minat pada pengembangan perangkat lunak.
+                <div class="flex flex-wrap gap-3 justify-center w-full mb-6">
+                    <a href="#projects" class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-xs shadow-sm flex items-center gap-2 transition-all">
+                        <i class="fa-solid fa-code"></i>
+                        <span>Lihat Proyek Saya</span>
+                    </a>
+                    <a href="https://docs.google.com/document/d/1JIcZBh59KEdFqynz6_zgo4mdBeNLOxP_/edit?usp=sharing&rtpof=true&sd=true" class="px-5 py-2.5 rounded-xl border border-brand-200 bg-brand-50 text-brand-700 hover:bg-brand-100 font-semibold text-xs flex items-center gap-2 transition-all">
+                        <i class="fa-solid fa-file"></i>
+                        <span>Download CV </span>
+                    </a>
+                </div>
+
+                <!-- Centered Social Links -->
+                <div class="flex items-center gap-3 pt-4 border-t border-slate-100 w-full justify-center">
+                    <a href="https://www.instagram.com/rafisakyaaji?igsi=MWw5Z2ZtajFoeHF6aw==" target="_blank" rel="noopener" aria-label="Instagram" class="w-8 h-8 rounded-lg bg-slate-100 hover:bg-brand-600 hover:text-white flex items-center justify-center text-slate-600 text-xs transition-colors">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@rafi.sakya?_r=1&_t=ZS-99OHa5K3x8n" target="_blank" rel="noopener" aria-label="Tiktok" class="w-8 h-8 rounded-lg bg-slate-100 hover:bg-brand-600 hover:text-white flex items-center justify-center text-slate-600 text-xs transition-colors">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@rafisakya" target="_blank" rel="noopener" aria-label="Youtube" class="w-8 h-8 rounded-lg bg-slate-100 hover:bg-brand-600 hover:text-white flex items-center justify-center text-slate-600 text-xs transition-colors">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/rafisakyaaji/" target="_blank" rel="noopener" aria-label="LinkedIn" class="w-8 h-8 rounded-lg bg-slate-100 hover:bg-brand-600 hover:text-white flex items-center justify-center text-slate-600 text-xs transition-colors">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="http://www.newsbris.eu.org/" target="_blank" rel="noopener" aria-label="blogger" class="w-8 h-8 rounded-lg bg-slate-100 hover:bg-brand-600 hover:text-white flex items-center justify-center text-slate-600 text-xs transition-colors">
+                        <i class="fa-brands fa-blogger"></i>
+                    </a>
+        
+                </div>
+
+            </div>
+        </section>
+
+        <section id="about" class="py-12 md:py-16 bg-brand-50/40">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-brand-600 mb-2">Tentang Saya</h2>
+                <p class="text-2xl font-extrabold text-slate-900 mb-4">Profil Singkat</p>
+                
+                <p class="text-slate-600 leading-relaxed text-xs sm:text-sm max-w-2xl mx-auto mb-6">
+                    Saya <strong class="text-slate-900">Rafi Sakya Aji</strong>, mahasiswa aktif <strong class="text-brand-600">Teknik Perminyakan ITB Angkatan 2025</strong>. Tertarik mempelajari pemrosesan data menggunakan <strong class="text-slate-800">Python</strong>, pembangunan aplikasi mobile lintas platform dengan<strong class="text-slate-800"> Ionic</strong>, serta perancangan situs <strong class="text-slate-800">web interaktif</strong>. Berfokus memadukan ilmu perminyakan dengan teknologi modern.
+                    
+                <!-- Centered CTA Buttons -->
+                </p>
+
+                <!-- Clean Centered Key Points -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl mx-auto">
+                    <div class="p-3 bg-white rounded-xl border border-brand-100 shadow-sm">
+                        <div class="text-lg font-bold text-brand-600">ITB '25</div>
+                        <div class="text-[11px] text-slate-500 font-medium">Teknik Perminyakan</div>
+                    </div>
+                    <div class="p-3 bg-white rounded-xl border border-brand-100 shadow-sm">
+                        <div class="text-lg font-bold text-brand-600">Python</div>
+                        <div class="text-[11px] text-slate-500 font-medium">Data & Scripting</div>
+                    </div>
+                    <div class="p-3 bg-white rounded-xl border border-brand-100 shadow-sm">
+                        <div class="text-lg font-bold text-brand-600">Ionic</div>
+                        <div class="text-[11px] text-slate-500 font-medium">Mobile Apps</div>
+                    </div>
+                    <div class="p-3 bg-white rounded-xl border border-brand-100 shadow-sm">
+                        <div class="text-lg font-bold text-brand-600">Web</div>
+                        <div class="text-[11px] text-slate-500 font-medium">HTML/CSS/JS</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="py-12 md:py-16 bg-white border-y border-slate-100">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6">
+                
+                <div class="text-center mb-8">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-brand-600 mb-1">Keahlian</h2>
+                    <p class="text-2xl font-extrabold text-slate-900">Skill & Teknologi</p>
+                </div>
+
+                <div class="grid sm:grid-cols-3 gap-4">
+                    <!-- Python -->
+                    <div class="p-4 rounded-xl bg-white border border-slate-200 text-center hover:border-brand-600 transition-colors shadow-sm">
+                        <div class="w-10 h-10 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center text-xl mx-auto mb-3 font-bold">
+                            <i class="fa-brands fa-python"></i>
+                        </div>
+                        <h3 class="text-sm font-bold text-slate-900 mb-1">Python</h3>
+                        <p class="text-[11px] text-slate-500 leading-relaxed">
+                            Otomasi skrip, analisis data, & logika komputasi.
+                        </p>
+                    </div>
+
+                    <!-- Ionic -->
+                    <div class="p-4 rounded-xl bg-white border border-slate-200 text-center hover:border-brand-600 transition-colors shadow-sm">
+                        <div class="w-10 h-10 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center text-xl mx-auto mb-3 font-bold">
+                            <i class="fa-solid fa-mobile-screen"></i>
+                        </div>
+                        <h3 class="text-sm font-bold text-slate-900 mb-1">Ionic Framework</h3>
+                        <p class="text-[11px] text-slate-500 leading-relaxed">
+                            Pengembangan aplikasi mobile cross-platform.
+                        </p>
+                    </div>
+
+                    <!-- HTML/CSS/JS -->
+                    <div class="p-4 rounded-xl bg-white border border-slate-200 text-center hover:border-brand-600 transition-colors shadow-sm sm:col-span-3 lg:col-span-1">
+                        <div class="w-10 h-10 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center text-xl mx-auto mb-3 font-bold">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <h3 class="text-sm font-bold text-slate-900 mb-1">HTML, CSS & JS</h3>
+                        <p class="text-[11px] text-slate-500 leading-relaxed">
+                            Tampilan web interaktif dan desain terstruktur.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="education" class="py-12 md:py-16 bg-brand-50/40">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-brand-600 mb-1">Pendidikan</h2>
+                <p class="text-2xl font-extrabold text-slate-900 mb-6">Latar Belakang Akademis</p>
+
+            <!-- Container Pendidikan -->
+<div class="space-y-4 max-w-xl mx-auto">
+
+    <!-- ITB -->
+    <div class="p-5 rounded-2xl bg-white border border-brand-100 shadow-sm text-center sm:text-left flex flex-col sm:flex-row items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-brand-50 border border-brand-100 flex items-center justify-center p-2 shrink-0">
+            <img src="ITB.png" alt="Logo ITB" class="w-full h-full object-contain">
+        </div>
+        <div>
+            <span class="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-brand-50 text-brand-700 border border-brand-200 inline-block mb-1">2025 - Sekarang</span>
+            <h3 class="text-base font-bold text-slate-900">Institut Teknologi Bandung</h3>
+            <p class="text-brand-600 font-semibold text-xs">S1 Teknik Perminyakan</p>
+        </div>
+    </div>
+
+    <!-- SMAN CMBBS -->
+    <div class="p-5 rounded-2xl bg-white border border-brand-100 shadow-sm text-center sm:text-left flex flex-col sm:flex-row items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-brand-50 border border-brand-100 flex items-center justify-center p-2 shrink-0">
+            <img src="CMBBS.jpg" alt="Logo SMAN CMBBS" class="w-full h-full object-contain">
+        </div>
+        <div>
+            <span class="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-brand-50 text-brand-700 border border-brand-200 inline-block mb-1">2022 - 2025</span>
+            <h3 class="text-base font-bold text-slate-900">SMAN Cahaya Madani Banten Boarding School</h3>
+            <p class="text-brand-600 font-semibold text-xs">MIPA</p>
+        </div>
+    </div>
+
+    <!-- MTsN 1 Kota Tangerang -->
+    <div class="p-5 rounded-2xl bg-white border border-brand-100 shadow-sm text-center sm:text-left flex flex-col sm:flex-row items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-brand-50 border border-brand-100 flex items-center justify-center p-2 shrink-0">
+            <img src="MTSN.jpg" alt="Logo MTsN 1 Kota Tangerang" class="w-full h-full object-contain">
+        </div>
+        <div>
+            <span class="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-brand-50 text-brand-700 border border-brand-200 inline-block mb-1">2019 - 2022</span>
+            <h3 class="text-base font-bold text-slate-900">MTsN 1 Kota Tangerang</h3>
+            <p class="text-brand-600 font-semibold text-xs">Sekolah Menengah Pertama</p>
+        </div>
+    </div>
+
+    <!-- SD Islam Al Ikhlas -->
+    <div class="p-5 rounded-2xl bg-white border border-brand-100 shadow-sm text-center sm:text-left flex flex-col sm:flex-row items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-brand-50 border border-brand-100 flex items-center justify-center p-2 shrink-0">
+            <img src="SD.png" alt="Logo SD Islam Al Ikhlas" class="w-full h-full object-contain">
+        </div>
+        <div>
+            <span class="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-brand-50 text-brand-700 border border-brand-200 inline-block mb-1">2013 - 2019</span>
+            <h3 class="text-base font-bold text-slate-900">SD Islam Al Ikhlas</h3>
+            <p class="text-brand-600 font-semibold text-xs">Sekolah Dasar</p>
+        </div>
+    </div>
+
+</div>
+        </section>
+
+        <section id="projects" class="py-12 md:py-16 bg-white border-y border-slate-100">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6">
+                
+                <div class="text-center mb-8">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-brand-600 mb-1">Portofolio</h2>
+                    <p class="text-2xl font-extrabold text-slate-900">Proyek & Aplikasi</p>
+                </div>
+
+                <div class="grid sm:grid-cols-3 gap-4">
+                    
+                    <!-- Main Python Project Card -->
+                    <div class="p-5 rounded-xl bg-white border border-slate-200 hover:border-brand-600 transition-all flex flex-col justify-between shadow-sm">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-brand-50 text-brand-700 border border-brand-200">Python App</span>
+                            </div>
+                            <h3 class="text-base font-bold text-slate-900 mb-1">DITO: Sistem Monitoring Ekosistem Mangrobe Berbasis GEE</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed mb-4">
+                                Aplikasi Python untuk pemantauan daerah pesesir mangrove sebagai alat monitoring serta perumusan kebijakan pesisir.
+                            </p>
+                        </div>
+                        <button onclick="openProjectModal('Sistem Inovasi DITO', 'Aplikasi berbasis Python untuk mengelola pesisir terutama ekosistem mangrove.', ['Python', 'Automation', 'CLI/GUI'], 'DITO.png')" class="text-xs font-bold text-brand-600 hover:text-brand-800 flex items-center gap-1">
+                            Detail Proyek <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+
+                    <!-- Ionic App -->
+                    <div class="p-5 rounded-xl bg-white border border-slate-200 hover:border-brand-600 transition-all flex flex-col justify-between shadow-sm">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-brand-50 text-brand-700 border border-brand-200">Ionic App</span>                            </div>
+                            <h3 class="text-base font-bold text-slate-900 mb-1">Tanggap Gempa dan Tsunami (TAGEMI)</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed mb-4">
+                                Aplikasi pendidikan mitigasi bencana gempa bumi dan tsunami dengan perpaduan machine learning untuk mempermudah penyebaran pemahaman.
+                            </p>
+                        </div>
+                        <button onclick="openProjectModal('Aplikasi TAGEMI (Tanggap Gempa Bumi dan Tsunami)', 'Aplikasi edukasi berbasis machine learning untuk memberikan pemahaman terkait mitigasi multi bencana.', ['Ionic', 'Mobile', 'JavaScript'], 'TAGEMI.png')" class="text-xs font-bold text-brand-600 hover:text-brand-800 flex items-center gap-1">
+                            Detail Proyek <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+
+                    <div class="p-5 rounded-xl bg-white border border-slate-200 hover:border-brand-600 transition-all flex flex-col justify-between shadow-sm">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-brand-50 text-brand-700 border border-brand-200">Python App</span>
+                            </div>
+                            <h3 class="text-base font-bold text-slate-900 mb-1">SORA: Subsurface Optimization and Recover Assistant</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed mb-4">
+                                Aplikasi machine learning untuk memudahkan proses EOR dengan memberi stategi injeksi yang tepat.
+                            </p>
+                        </div>
+                        <button onclick="openProjectModal('Sistem SORA', 'Aplikasi berbasis Python untuk memberikan strategi injeksi EOR.', ['Python', 'Automation', 'Oil'], 'SORA.png')" class="text-xs font-bold text-brand-600 hover:text-brand-800 flex items-center gap-1">
+                            Detail Proyek <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-12 md:py-16 bg-brand-50/40">
+            <div class="max-w-2xl mx-auto px-4 sm:px-6">
+                
+                <div class="text-center mb-8">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-brand-600 mb-1">Kontak</h2>
+                    <p class="text-2xl font-extrabold text-slate-900">Kirim Pesan ke Rafi</p>
+                    <p class="text-xs text-slate-500 mt-1">
+                        Hubungi melalui media komunikasi <span class="text-brand-600 font-medium">berikut</span>
+                    </p>
+                </div>
+
+                <!-- Simple Contact Info Bar -->
+                <div class="p-2 mb-3 bg-white rounded-xl border border-brand-100 shadow-sm flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center text-sm shrink-0">
+                            <i class="fa-regular fa-envelope"></i>
+                        </div>
+                        <span class="text-xs font-bold text-slate-900">sakyaajirafi@gmail.com</span>
+                    </div>
+                    <button onclick="copyToClipboard('sakyaajirafi@gmail.com', 'Email berhasil disalin!')" class="p-1.5 rounded-lg bg-brand-50 hover:bg-brand-600 hover:text-white transition-colors text-brand-600 text-xs" title="Salin Email">
+                        <i class="fa-regular fa-copy"></i>
+                    </button>
+                </div>
+                <div class="p-2 mb-3 bg-white rounded-xl border border-brand-100 shadow-sm flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center text-sm shrink-0">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                        <span class="text-xs font-bold text-slate-900">082123188904</span>
+                    </div>
+                    <button onclick="copyToClipboard('082123188904', 'Nomor Telepon berhasil disalin!')" class="p-1.5 rounded-lg bg-brand-50 hover:bg-brand-600 hover:text-white transition-colors text-brand-600 text-xs" title="Salin Nomor Telepon">
+                        <i class="fa-regular fa-copy"></i>
+                    </button>
+                </div>
+                <div class="p-2 mb-3 bg-white rounded-xl border border-brand-100 shadow-sm flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center text-sm shrink-0">
+                            <i class="fa-brands fa-line"></i>
+                        </div>
+                        <span class="text-xs font-bold text-slate-900">082123188904</span>
+                    </div>
+                    <button onclick="copyToClipboard('sakyaaji', 'Id Line berhasil disalin!')" class="p-1.5 rounded-lg bg-brand-50 hover:bg-brand-600 hover:text-white transition-colors text-brand-600 text-xs" title="Salin Line">
+                        <i class="fa-regular fa-copy"></i>
+                    </button>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t border-slate-100 py-6">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+            <span class="text-xs font-medium text-slate-500">
+                &copy; 2026 Rafi Sakya Aji • Teknik Perminyakan ITB 2025
+            </span>
+
+            <div class="flex items-center gap-3 text-xs font-medium text-slate-500">
+                <a href="#about" class="hover:text-brand-600 transition-colors">Tentang</a>
+                <a href="#projects" class="hover:text-brand-600 transition-colors">Proyek</a>
+                <a href="#contact" class="hover:text-brand-600 transition-colors">Kontak</a>
+                <a href="#" class="w-6 h-6 rounded bg-slate-100 hover:bg-brand-600 hover:text-white flex items-center justify-center transition-colors" title="Ke Atas">
+                    <i class="fa-solid fa-arrow-up text-[10px]"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="project-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-white border border-slate-200 w-full max-w-md rounded-2xl overflow-hidden shadow-2xl relative">
+            <button onclick="closeProjectModal()" class="absolute top-3 right-3 z-10 w-7 h-7 rounded-full bg-slate-900/70 text-white flex items-center justify-center hover:bg-slate-900 transition-colors">
+                <i class="fa-solid fa-xmark text-xs"></i>
+            </button>
+
+            <div class="h-40 overflow-hidden">
+                <img id="modal-img" src="" alt="Project Image" class="w-full h-full object-cover">
+            </div>
+
+            <div class="p-5">
+                <h3 id="modal-title" class="text-lg font-bold text-slate-900 mb-1"></h3>
+                <p id="modal-desc" class="text-slate-500 text-xs leading-relaxed mb-4"></p>
+
+                <div class="mb-4">
+                    <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">Teknologi</div>
+                    <div id="modal-tech" class="flex flex-wrap gap-1"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        let toastTimeout;
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+
+            toastMessage.textContent = message;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+
+        function copyToClipboard(text, successMsg) {
+            const el = document.createElement('textarea');
+            el.value = text;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+            showToast(successMsg);
+        }
+
+
+        function openProjectModal(title, desc, techArray, imgSrc) {
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('modal-desc').textContent = desc;
+            document.getElementById('modal-img').src = imgSrc;
+
+            const techContainer = document.getElementById('modal-tech');
+            techContainer.innerHTML = '';
+            techArray.forEach(tech => {
+                const badge = document.createElement('span');
+                badge.className = 'text-[10px] font-semibold px-2 py-0.5 rounded bg-brand-50 text-brand-700 border border-brand-200';
+                badge.textContent = tech;
+                techContainer.appendChild(badge);
+            });
+
+            const modal = document.getElementById('project-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeProjectModal() {
+            const modal = document.getElementById('project-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        document.getElementById('project-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'project-modal') {
+                closeProjectModal();
+            }
+        });
+
+    </script>
+</body>
+</html>
